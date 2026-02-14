@@ -1,0 +1,77 @@
+{
+  "name": "azure-kernel-debugger",
+  "displayName": "Azure Kernel Debugger",
+  "description": "VS Code extension that hosts a Python MCP server for Linux kernel debugging over Azure serial console.",
+  "version": "0.0.1",
+  "publisher": "local-dev",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:azureKernelDebugger.installDependencies"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "azureKernelDebugger.installDependencies",
+        "title": "Azure Kernel Debugger: Install Dependencies"
+      }
+    ],
+    "configuration": {
+      "title": "Azure Kernel Debugger",
+      "properties": {
+        "azureKernelDebugger.subscriptionId": {
+          "type": "string",
+          "default": "",
+          "description": "Azure Subscription ID used by the kernel debugging MCP server."
+        },
+        "azureKernelDebugger.resourceGroup": {
+          "type": "string",
+          "default": "",
+          "description": "Azure Resource Group that contains the target VM."
+        },
+        "azureKernelDebugger.vmName": {
+          "type": "string",
+          "default": "",
+          "description": "Azure VM name for serial console debugging."
+        },
+        "azureKernelDebugger.pythonPath": {
+          "type": "string",
+          "default": "python",
+          "description": "Python executable used to launch the MCP server and install dependencies."
+        }
+      }
+    },
+    "mcpServerDefinitionProviders": [
+      {
+        "id": "azureKernelDebugger.server",
+        "label": "Azure Kernel Debugger",
+        "command": "${config:azureKernelDebugger.pythonPath}",
+        "args": [
+          "${extensionPath}/src/python/server.py",
+          "--subscription",
+          "${config:azureKernelDebugger.subscriptionId}",
+          "--resource-group",
+          "${config:azureKernelDebugger.resourceGroup}",
+          "--vm-name",
+          "${config:azureKernelDebugger.vmName}"
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.16.5",
+    "@types/vscode": "^1.95.0",
+    "typescript": "^5.6.2"
+  }
+}
