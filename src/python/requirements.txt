@@ -1,0 +1,3 @@
+mcp
+azure-cli
+pexpect
