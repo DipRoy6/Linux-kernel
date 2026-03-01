@@ -1,0 +1,11 @@
+{
+  "name": "startup-intel-demo",
+  "version": "1.0.0",
+  "description": "Demo web app for selling startup executive intelligence",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node --test"
+  }
+}

@@ -1,0 +1,160 @@
+:root {
+  --bg: #0b1020;
+  --panel: #121a30;
+  --panel-soft: #1a2441;
+  --accent: #62c6ff;
+  --text: #e9f1ff;
+  --muted: #a6b4d8;
+  --success: #63e6be;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+  background: radial-gradient(circle at top, #1b2a52, var(--bg) 45%);
+  color: var(--text);
+}
+
+main {
+  width: min(1200px, 92vw);
+  margin: 1.5rem auto 3rem;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.hero {
+  width: min(1200px, 92vw);
+  margin: 2rem auto 1rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.2rem;
+}
+
+.hero h1 {
+  margin-top: 0.3rem;
+  font-size: clamp(1.8rem, 2.8vw, 2.7rem);
+  line-height: 1.2;
+}
+
+.tag {
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+  color: var(--accent);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.subtitle,
+.muted {
+  color: var(--muted);
+}
+
+.hero-card,
+.panel {
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 1rem 1.2rem;
+  backdrop-filter: blur(8px);
+}
+
+.panel h2,
+.hero-card h3 {
+  margin-top: 0.2rem;
+}
+
+.plans-grid,
+.selector-grid,
+.company-grid {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.plans-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.selector-grid {
+  margin-top: 0.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.plan-card,
+.company-card {
+  background: var(--panel-soft);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 0.9rem;
+}
+
+button {
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
+  color: #041122;
+  padding: 0.55rem 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button.active {
+  outline: 2px solid #fff;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+#sectorFilter,
+select {
+  background: #091028;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 0.45rem;
+}
+
+.company-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 0.8rem;
+}
+
+.company-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.company-card small {
+  color: var(--muted);
+}
+
+.badge {
+  color: #02210f;
+  background: var(--success);
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+#detailsPanel ul {
+  padding-left: 1rem;
+}
+
+a {
+  color: var(--accent);
+}
+
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}

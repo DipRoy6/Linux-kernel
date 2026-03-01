@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignalDesk | Startup Executive Intelligence</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="tag">B2B Intelligence Platform</p>
+        <h1>Startup Executive Intelligence, Curated for Sales & Strategy Teams</h1>
+        <p class="subtitle">
+          Explore startup profiles by sector, unlock executive contacts, and get concise performance insights relative to peers.
+        </p>
+      </div>
+      <div class="hero-card">
+        <h3>How access works</h3>
+        <ul>
+          <li>Single Company</li>
+          <li>Sector Access</li>
+          <li>All Sectors</li>
+        </ul>
+        <p>Choose a plan and instantly view the data your team needs.</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel plan-panel">
+        <h2>Choose Demo Plan</h2>
+        <div id="plans" class="plans-grid"></div>
+        <div id="planSelectors" class="selector-grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Startup Directory</h2>
+          <select id="sectorFilter"></select>
+        </div>
+        <div id="companyGrid" class="company-grid"></div>
+      </section>
+
+      <section class="panel" id="detailsPanel">
+        <h2>Company Insights</h2>
+        <p class="muted">Select a company to see profile details based on your plan.</p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
